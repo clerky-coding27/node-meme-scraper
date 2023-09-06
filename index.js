@@ -36,9 +36,15 @@ let firstTenImages;
   // Close browser.
   await browser.close();
 
-  for (let counter = 1; counter < 11; counter++) {
+  let currentImageString;
+  for (let counter = 0; counter < 10; counter++) {
     const currentImage = imagesAll[counter];
-    const currentImageString = `${currentImage}`;
+    if (counter < 9) {
+      currentImageString = '0' + `${counter + 1}.jpg`;
+    } else {
+      currentImageString = `${counter + 1}.jpg`;
+    }
+    console.log(currentImageString);
     console.log(currentImage);
 
     async function downloadImage() {
@@ -49,7 +55,7 @@ let firstTenImages;
       });
 
       response.data.pipe(
-        fs.createWriteStream(path.resolve('./memes', `${counter}.jpg`)),
+        fs.createWriteStream(path.resolve('./memes', `${currentImageString}`)),
       );
 
       /*

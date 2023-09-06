@@ -36,7 +36,7 @@ let firstTenImages;
   // Close browser.
   await browser.close();
 
-  for (let counter = 0; counter < 10; counter++) {
+  for (let counter = 1; counter < 11; counter++) {
     const currentImage = imagesAll[counter];
     const currentImageString = `${currentImage}`;
     console.log(currentImage);

@@ -1,6 +1,6 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import axios from 'axios';
-import fs from 'fs';
-import path from 'path';
 import puppeteer from 'puppeteer';
 
 const folderName = './memes';
@@ -12,12 +12,10 @@ try {
   console.error('directory already exists');
 }
 
-let imagesAll;
-let firstTenImages;
-
 // access page and retrieve image links
+let imagesAll;
 
-(async () => {
+async function accessDownloadAndSave() {
   // Launch the browser
   const browser = await puppeteer.launch();
 
@@ -36,17 +34,22 @@ let firstTenImages;
   // Close browser.
   await browser.close();
 
-  let currentImageString;
+  // loop ten times
   for (let counter = 0; counter < 10; counter++) {
+    // select single image
     const currentImage = imagesAll[counter];
+    console.log(currentImage);
+
+    // create image name
+    let currentImageString;
     if (counter < 9) {
-      currentImageString = '0' + `${counter + 1}.jpg`;
+      currentImageString = `0${counter + 1}.jpg`;
     } else {
       currentImageString = `${counter + 1}.jpg`;
     }
     console.log(currentImageString);
-    console.log(currentImage);
 
+    // download image function
     async function downloadImage() {
       const response = await axios({
         url: currentImage,
@@ -54,19 +57,15 @@ let firstTenImages;
         responseType: 'stream',
       });
 
+      // save image with image name
       response.data.pipe(
-        fs.createWriteStream(path.resolve('./memes', `${currentImageString}`)),
+        fs.createWriteStream(path.resolve('./memes', currentImageString)),
       );
-
-      /*
-      return new Promise((resolve, reject) => {
-        writer.on('finish', resolve);
-        writer.on('error', reject);
-}
-
-      );*/
     }
 
+    // download image
     await downloadImage();
   }
-})();
+}
+
+await accessDownloadAndSave();

@@ -15,7 +15,7 @@ Welcome to the Memegen Scraper CLI, a command-line application created to scrape
 - **Saving Images:**
   - The extracted images are saved into a folder named "memes" within the project directory.
   - Each image file is named with a number and a leading zero (e.g., 01.jpg, 02.jpg, etc.).
-  - Meme images are not being saved in the repository.
+  - Meme images are not being saved in the Git repository.
 
 ### Implementation
 

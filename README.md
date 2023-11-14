@@ -15,10 +15,10 @@ Welcome to the Memegen Scraper CLI, a command-line application created to scrape
   - Each image file is named with a number and a leading zero (e.g., 01.jpg, 02.jpg, etc.).
   - Meme images are not being saved in the Git repository.
 
-1. **Fetch Website Content:**
+- **Fetch Website Content:**
    - Uses puppeteer to fetch the HTML content of the Memegen Link Examples website.
 
-3. **Download Images:**
+- **Download Images:**
    - Saves the first 10 images into the "memes" folder using the Node.js `fs` module.
 
 ## How to Run

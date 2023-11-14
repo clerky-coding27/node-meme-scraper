@@ -6,8 +6,6 @@ Welcome to the Memegen Scraper CLI, a command-line application created to scrape
 
 ## Features
 
-### Basic Functionality
-
 - **Scraping Memes:**
   - The CLI fetches the current version of the Memegen Link Examples website.
   - It extracts the first 10 images from the website.
@@ -16,8 +14,6 @@ Welcome to the Memegen Scraper CLI, a command-line application created to scrape
   - The extracted images are saved into a folder named "memes" within the project directory.
   - Each image file is named with a number and a leading zero (e.g., 01.jpg, 02.jpg, etc.).
   - Meme images are not being saved in the Git repository.
-
-### Implementation
 
 1. **Fetch Website Content:**
    - Uses puppeteer to fetch the HTML content of the Memegen Link Examples website.

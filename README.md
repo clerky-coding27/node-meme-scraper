@@ -1,12 +1,43 @@
-#Node Meme Scraper
+# Memegen Scraper CLI
 
-##Task
-Create a cli (Command Line Interface) application that scrapes the current version of this website: memegen-link-examples-upleveled.netlify.app
+## Overview
 
-...and saves the first 10 images into a folder called "memes" within the directory of the new project. The image files should be named with a number with a leading zero, eg. 01.jpg, 02.jpg, etc.
+Welcome to the Memegen Scraper CLI, a command-line application created to scrape the current version of the [Memegen Link Examples](https://memegen-link-examples-upleveled.netlify.app) website and save the first 10 images into a folder named "memes."
 
-Avoid using an "image scraper" or "image downloader" library that does multiple steps at once for you (eg. do not use image-downloader or nodejs-file-downloader or similar) - break the task down into smaller steps and select libraries as necessary for each step.
+## Features
 
-Make sure that the meme images are "ignored" in Git - they should not show up in your repository.
+- **Scraping Memes:**
+  - The CLI fetches the current version of the Memegen Link Examples website.
+  - It extracts the first 10 images from the website.
 
-The program should be able to run multiple times without throwing an error.
+- **Saving Images:**
+  - The extracted images are saved into a folder named "memes" within the project directory.
+  - Each image file is named with a number and a leading zero (e.g., 01.jpg, 02.jpg, etc.).
+  - Meme images are not being saved in the Git repository.
+
+- **Fetch Website Content:**
+   - Uses puppeteer to fetch the HTML content of the Memegen Link Examples website.
+
+- **Download Images:**
+   - Saves the first 10 images into the "memes" folder using the Node.js `fs` module.
+
+## How to Run
+
+1. **Clone the Repository:**
+   - `git clone <repository-url>`
+
+2. **Navigate to the Project Directory:**
+   - `cd memegen-scraper-cli`
+
+3. **Install Dependencies:**
+   - `npm install`
+
+4. **Run the CLI:**
+   - `node index.js`
+
+5. **Access the Meme Images:**
+   - Open the "memes" folder within the project directory to find the downloaded meme images.
+
+Feel free to explore the codebase, contribute improvements, or use it as a reference for your own projects. If you have suggestions or find ways to enhance the implementation, don't hesitate to open an issue or submit a pull request.
+
+Happy coding!

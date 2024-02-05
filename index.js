@@ -17,7 +17,12 @@ let imagesAll;
 
 async function accessDownloadAndSave() {
   // Launch the browser
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({
+    headless: 'new',
+    // `headless: true` (default) enables old Headless;
+    // `headless: 'new'` enables new Headless;
+    // `headless: false` enables "headful" mode.
+  });
 
   // Create a page
   const page = await browser.newPage();
